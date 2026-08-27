@@ -1,0 +1,11 @@
+id,name,latitude,longitude
+1,Wawel Castle,50.0540,19.9352
+2,Main Square,50.0617,19.9373
+3,Central Station,50.0674,19.9472
+4,AGH University,50.0649,19.9233
+5,Location A,50.0721,19.9614
+6,Location B,50.0485,19.9620
+7,Invalid Latitude,95.0000,19.9400
+8,Invalid Longitude,50.0600,200.0000
+9,Missing Latitude,,19.9500
+10,Duplicate Point,50.0617,19.9373
