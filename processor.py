@@ -1,14 +1,13 @@
 def remove_duplicates(valid_locations):
 
-
-    seen_coordinates = set()
+    seen_locations = set()
     unique_locations = []
 
     for location in valid_locations:
-        coordinates = (location["latitude"], location["longitude"])
-        if coordinates not in seen_coordinates:
+        location_key = (location["name"], location["latitude"], location["longitude"])
+        if location_key not in seen_locations:
             unique_locations.append(location)
-            seen_coordinates.add(coordinates)
+            seen_locations.add(location_key)
 
     return unique_locations
 
