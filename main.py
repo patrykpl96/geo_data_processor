@@ -2,6 +2,7 @@ from loader import load_locations
 from validators import is_location_valid, is_distance_valid
 from processor import remove_duplicates, get_nearby_locations, get_location_point
 from geometry import create_point, create_geodataframe
+from exporters import export_to_geojson
 
 def main():
 
@@ -37,9 +38,7 @@ def main():
                     print(f'{row["name"]}-  {row["distance"]} m ')
 
                 result_gdf = create_geodataframe(points, "EPSG:2180")
-                result_gdf_wgs84 = result_gdf.to_crs("EPSG:4326")
-
-                result_gdf_wgs84.to_file("data/processed/search_results.geojson", driver = "GeoJSON")
+                export_to_geojson(result_gdf, "data/processed/search_results.geojson")
 
         else:
             print("Niepoprawne dane")
@@ -49,13 +48,6 @@ if __name__ == "__main__":
     main()
 
 
-
-
-#nearby_locations= get_nearby_locations(gdf_projected, wawel_point, 1500)
-#nearby_gdf = create_geodataframe(nearby_locations,"EPSG:2180" )
-#nearby_gdf_wgs84 = nearby_gdf.to_crs("EPSG:4326")
-
-#nearby_gdf_wgs84.to_file("data/processed/nearby_locations.geojson", driver = "GeoJSON")
 
 
 
